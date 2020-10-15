@@ -2,9 +2,10 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
+      <router-link :to="{ name: 'Nuevo' }">Nuevo</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -30,3 +31,16 @@
   }
 }
 </style>
+
+<script>
+import { mapActions } from "vuex";
+export default {
+  name: "App",
+  created() {
+    this.getActivities();
+  },
+  methods: {
+    ...mapActions(["getActivities"]),
+  },
+};
+</script>
